@@ -1,22 +1,20 @@
 var cards = ["queen","queen","king","king"];
 var cardsInPlay = [];
-// the first card that the user flipped 
-var cardOne = cards [0];
-var cardTwo = cards [2];
 
-cardsInPlay.push(cardOne);
-console.log ("User flipped " + cardOne);
-
-cardsInPlay.push(cardTwo);
-console.log ("User flipped " + cardTwo);
-
-
-if (cardsInPlay.length === 2 && cardsInPlay[0] === cardsInPlay[1]) {
-    alert("You found a match!");
-
-} else if (cardsInPlay.length === 2 && cardsInPlay[0] !== cardsInPlay[1]) {
-	alert("Sorry, try again.");
-
-} else {
-  console.log("Pick Another card!");
-}
+function checkForMatch () {
+/* Joel Suggested changing the rule here to also include the 2 card rule.*/
+  if (cardsInPlay[0] === cardsInPlay[1]) {
+  console.log("You found a match!");
+  } else {
+  console.log("Sorry, try again.");
+  }
+};
+function flipCard (cardId) {
+  console.log("User flipped " + cards[cardId]);
+  cardsInPlay.push(cards[cardId]);
+  if (cardsInPlay.length === 2) {
+  checkForMatch ();
+  }
+};
+flipCard (0);
+flipCard (2);
